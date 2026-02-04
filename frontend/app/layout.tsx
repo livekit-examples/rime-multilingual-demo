@@ -1,4 +1,3 @@
-import { Public_Sans } from 'next/font/google';
 import localFont from 'next/font/local';
 import { headers } from 'next/headers';
 import { ThemeProvider } from '@/components/app/theme-provider';
@@ -7,9 +6,10 @@ import { cn } from '@/lib/shadcn/utils';
 import { getAppConfig, getStyles } from '@/lib/utils';
 import '@/styles/globals.css';
 
-const publicSans = Public_Sans({
+const publicSans = localFont({
+  display: 'swap',
   variable: '--font-public-sans',
-  subsets: ['latin'],
+  src: '../public/everett-light.woff',
 });
 
 const commitMono = localFont({

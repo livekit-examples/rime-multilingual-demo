@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useMemo, type ComponentProps } from 'react';
+import React, { type ComponentProps, useMemo } from 'react';
 import { type VariantProps, cva } from 'class-variance-authority';
 import { type LocalAudioTrack, type RemoteAudioTrack } from 'livekit-client';
 import { type AgentState, type TrackReferenceOrPlaceholder } from '@livekit/components-react';
-
 import { ReactShaderToy } from '@/components/agents-ui/react-shader-toy';
 import { useAgentAudioVisualizerAura } from '@/hooks/agents-ui/use-agent-audio-visualizer-aura';
 import { cn } from '@/lib/shadcn/utils';
@@ -21,9 +20,9 @@ function hexToRgb(hexColor: string) {
 
       return color;
     }
-  } catch (error) {
+  } catch {
     console.error(
-      `Invalid hex color '${hexColor}'.\nFalling back to default color '${DEFAULT_COLOR}'.`,
+      `Invalid hex color '${hexColor}'.\nFalling back to default color '${DEFAULT_COLOR}'.`
     );
   }
 
@@ -413,7 +412,7 @@ export function AgentAudioVisualizerAura({
   VariantProps<typeof AgentAudioVisualizerAuraVariants>) {
   const { speed, scale, amplitude, frequency, brightness } = useAgentAudioVisualizerAura(
     state,
-    audioTrack,
+    audioTrack
   );
 
   return (
@@ -431,7 +430,7 @@ export function AgentAudioVisualizerAura({
       className={cn(
         AgentAudioVisualizerAuraVariants({ size }),
         'overflow-hidden rounded-full',
-        className,
+        className
       )}
       {...props}
     />
