@@ -78,21 +78,30 @@ export default async function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <header className="fixed top-0 left-0 z-50 hidden w-full flex-row justify-between p-6 md:flex">
-            <a
-              target="_blank"
-              rel="noopener noreferrer"
-              href="https://livekit.io"
-              className="scale-100 transition-transform duration-300 hover:scale-110"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={logo} alt={`${companyName} Logo`} className="block size-6 dark:hidden" />
+            <div className="flex items-center gap-4">
+              <a
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://livekit.io"
+                className="scale-100 transition-transform duration-300 hover:scale-110"
+              >
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={logo} alt={`${companyName} Logo`} className="block size-6 dark:hidden" />
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={logoDark ?? logo}
+                  alt={`${companyName} Logo`}
+                  className="hidden size-6 dark:block"
+                />
+              </a>
+              <div className="bg-border h-6 w-px shrink-0" aria-hidden />
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={logoDark ?? logo}
-                alt={`${companyName} Logo`}
-                className="hidden size-6 dark:block"
+                src="/rime_logo.svg"
+                alt="Rime"
+                className="mt-0.5 h-6 w-auto max-w-[4.5rem] object-contain object-left invert dark:invert-0"
               />
-            </a>
+            </div>
             <span className="text-foreground font-mono text-xs font-bold tracking-wider uppercase">
               Built with{' '}
               <a
