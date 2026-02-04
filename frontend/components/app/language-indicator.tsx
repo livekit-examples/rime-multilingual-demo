@@ -2,8 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { useSessionContext, useVoiceAssistant } from '@livekit/components-react';
-import { cn } from '@/lib/shadcn/utils';
 import { APP_CONFIG_DEFAULTS } from '@/app-config';
+import { cn } from '@/lib/shadcn/utils';
 
 const DEFAULT_LANGUAGE = 'English';
 const LANGUAGE_ATTR = 'current_language';
@@ -30,29 +30,29 @@ export function LanguageIndicator() {
   return (
     <>
       <style>{`@keyframes ring-pulse-once{0%,100%{opacity:0}50%{opacity:1}}`}</style>
-      <span className="relative inline-flex mr-2">
-      <span
-        className={cn(
-          'pointer-events-none absolute -inset-[3px] rounded-full ring-2 ring-[var(--language-indicator-teal)]',
-          !isPulsing && 'opacity-0',
-          isPulsing && 'animate-[ring-pulse-once_1.2s_ease-in-out_1]'
-        )}
-        style={{
-          ['--language-indicator-teal' as string]: teal,
-          ...(isPulsing && { animationFillMode: 'forwards' }),
-        }}
-        onAnimationEnd={() => setIsPulsing(false)}
-        aria-hidden
-      />
-      <span
-        className={cn(
-          'relative inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium',
-          'bg-muted text-muted-foreground shrink-0'
-        )}
-      >
-        {displayLanguage}
+      <span className="relative mr-2 inline-flex">
+        <span
+          className={cn(
+            'pointer-events-none absolute -inset-[3px] rounded-full ring-2 ring-[var(--language-indicator-teal)]',
+            !isPulsing && 'opacity-0',
+            isPulsing && 'animate-[ring-pulse-once_1.2s_ease-in-out_1]'
+          )}
+          style={{
+            ['--language-indicator-teal' as string]: teal,
+            ...(isPulsing && { animationFillMode: 'forwards' }),
+          }}
+          onAnimationEnd={() => setIsPulsing(false)}
+          aria-hidden
+        />
+        <span
+          className={cn(
+            'relative inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium',
+            'bg-muted text-muted-foreground shrink-0'
+          )}
+        >
+          {displayLanguage}
+        </span>
       </span>
-    </span>
     </>
   );
 }

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import { type LocalAudioTrack, type RemoteAudioTrack } from 'livekit-client';
 import {
   type AnimationPlaybackControlsWithThen,
@@ -37,7 +37,7 @@ function useAnimatedValue<T>(initialValue: T) {
     (targetValue: T | T[], transition: ValueAnimationTransition) => {
       controlsRef.current = animate(motionValue, targetValue, transition);
     },
-    [motionValue],
+    [motionValue]
   );
 
   return { value, motionValue, controls: controlsRef, animate: animateFn };
@@ -45,7 +45,7 @@ function useAnimatedValue<T>(initialValue: T) {
 
 export function useAgentAudioVisualizerAura(
   state: AgentState | undefined,
-  audioTrack?: LocalAudioTrack | RemoteAudioTrack | TrackReferenceOrPlaceholder,
+  audioTrack?: LocalAudioTrack | RemoteAudioTrack | TrackReferenceOrPlaceholder
 ) {
   const [speed, setSpeed] = useState(DEFAULT_SPEED);
   const {

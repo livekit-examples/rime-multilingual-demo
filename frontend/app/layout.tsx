@@ -39,6 +39,12 @@ const commitMono = localFont({
   ],
 });
 
+export const metadata = {
+  metadataBase: process.env.NEXT_PUBLIC_APP_URL
+    ? new URL(process.env.NEXT_PUBLIC_APP_URL)
+    : new URL('http://localhost:3000'),
+};
+
 interface RootLayoutProps {
   children: React.ReactNode;
 }
