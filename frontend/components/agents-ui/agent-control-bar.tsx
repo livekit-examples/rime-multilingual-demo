@@ -5,6 +5,7 @@ import { Track } from 'livekit-client';
 import { Loader, MessageSquareTextIcon, SendHorizontal } from 'lucide-react';
 import { motion } from 'motion/react';
 import { useChat } from '@livekit/components-react';
+import { LanguageIndicator } from '@/components/app/language-indicator';
 import { AgentDisconnectButton } from '@/components/agents-ui/agent-disconnect-button';
 import { AgentTrackControl } from '@/components/agents-ui/agent-track-control';
 import {
@@ -371,6 +372,8 @@ export function AgentControlBar({
             </Toggle>
           )}
         </div>
+
+        <LanguageIndicator />
 
         {/* Disconnect */}
         {visibleControls.leave && (
